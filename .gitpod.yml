@@ -3,6 +3,8 @@ tasks:
   - init: |
       yarn global add blitz
       yarn install
+  - prebuild: |
+      docker-compose up -d
     command: yarn run dev
 # Ports to expose on workspace startup
 ports:
