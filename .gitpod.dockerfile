@@ -11,6 +11,7 @@ RUN sudo apt-get update && \
     sudo apt-get install -y git-all google-chrome-stable
 WORKDIR /
 RUN git clone https://github.com/jotyGill/quickz-sh.git
+RUN ls
 WORKDIR /quickz-sh
 RUN chmod +x ./quickz.sh
 RUN ./quickz.sh -c
