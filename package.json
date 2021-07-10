@@ -2,7 +2,7 @@
   "name": "dev-job",
   "version": "1.0.0",
   "scripts": {
-    "predev": "docker-compose up -d",
+    "predev": "$npm_execpath run database:start && $npm_execpath run database:migrate",
     "dev": "blitz dev",
     "build": "blitz build",
     "start": "blitz start",
@@ -10,7 +10,10 @@
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
     "test": "jest",
     "test:watch": "jest --watch",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "database:start": "docker-compose up -d",
+    "database:stop": "docker-compose down",
+    "database:migrate": "blitz prisma migrate dev"
   },
   "prisma": {
     "schema": "db/schema.prisma"
