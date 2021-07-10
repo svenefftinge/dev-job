@@ -3,12 +3,12 @@ image:
 
 # Commands to start on workspace startup
 tasks:
-  - before: printf "\n[settings]\napi_key = $WAKA_TIME_API_KEY\n" > ~/.wakatime.cfg
-  - prebuild: |
-      docker-compose up -d
   - init: |
-      npm install -g blitz --legacy-peer-deps
+      printf "\n[settings]\napi_key = $WAKA_TIME_API_KEY\n" > ~/.wakatime.cfg
+      docker-compose up -d
       yarn install
+  - prebuild: |
+      npm install -g blitz --legacy-peer-deps
     command: |
       yarn run dev
       zsh
@@ -44,3 +44,4 @@ vscode:
     - orta.vscode-jest
     - prisma.prisma
     - vtrois.gitmoji-vscode
+    - wakatime.vscode-wakatime

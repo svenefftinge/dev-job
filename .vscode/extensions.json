@@ -5,7 +5,8 @@
     "esbenp.prettier-vscode",
     "mikestead.dotenv",
     "orta.vscode-jest",
-    "prisma.prisma"
+    "prisma.prisma",
+    "wakatime.vscode-wakatime"
   ],
   "unwantedRecommendations": []
 }
