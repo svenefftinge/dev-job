@@ -5,6 +5,8 @@ image:
 tasks:
   - before: printf "\n[settings]\napi_key = $WAKA_TIME_API_KEY\n" > ~/.wakatime.cfg
   - init: |
+      yarn config set prefix ~/.yarn
+      export PATH="$PATH:`yarn global bin`"
       yarn global add blitz
       yarn install
   - prebuild: |
