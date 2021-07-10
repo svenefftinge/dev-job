@@ -12,6 +12,7 @@ tasks:
     command: |
       yarn run dev
       zsh
+
 # Ports to expose on workspace startup
 ports:
   - port: 3000
