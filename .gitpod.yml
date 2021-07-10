@@ -1,11 +1,17 @@
+image:
+  file: .gitpod.dockerfile
+
 # Commands to start on workspace startup
 tasks:
+  - before: printf "\n[settings]\napi_key = $WAKA_TIME_API_KEY\n" > ~/.wakatime.cfg
   - init: |
       yarn global add blitz
       yarn install
   - prebuild: |
       docker-compose up -d
-    command: yarn run dev
+    command: |
+      yarn run dev
+      zsh
 # Ports to expose on workspace startup
 ports:
   - port: 3000
@@ -27,3 +33,14 @@ github:
     addBadge: false
     # add a label once the prebuild is ready to pull requests (defaults to false)
     addLabel: prebuilt-in-gitpod
+
+vscode:
+  extensions:
+    - dbaeumer.vscode-eslint
+    - editorconfig.editorconfig
+    - esbenp.prettier-vscode
+    - mikestead.dotenv
+    - mgmcdermott.vscode-language-babel
+    - orta.vscode-jest
+    - prisma.prisma
+    - vtrois.gitmoji-vscode
