@@ -8,7 +8,7 @@ RUN sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ st
 
 # Install custom tools, runtime, etc.
 RUN sudo apt-get update && sudo apt-get update -y && \
-    sudo apt-get install -y git-all google-chrome-stable docker-compose
+    sudo apt-get install -y git-all google-chrome-stable
 
 # Install ZSH
 RUN git clone https://github.com/jotyGill/quickz-sh.git ./quickz
