@@ -10,6 +10,6 @@ RUN sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ st
 RUN sudo apt-get update && \
     sudo apt-get install -y git-all google-chrome-stable
 RUN git clone https://github.com/jotyGill/quickz-sh.git ./quickz
-RUN ls -la
+WORKDIR /home/gitpod/quickz
 RUN chmod +x ./quickz.sh
 RUN ./quickz.sh -c
