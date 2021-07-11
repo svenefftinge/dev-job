@@ -2,8 +2,7 @@
   "name": "dev-job",
   "version": "1.0.0",
   "scripts": {
-    "predev": "$npm_execpath run database:start && $npm_execpath run database:migrate",
-    "dev": "blitz dev",
+    "dev": "$npm_execpath run database:start && $npm_execpath run database:migrate && blitz dev",
     "build": "blitz build",
     "start": "blitz start",
     "studio": "blitz prisma studio",
