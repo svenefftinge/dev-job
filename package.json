@@ -2,8 +2,7 @@
   "name": "dev-job",
   "version": "1.0.0",
   "scripts": {
-    "preinstall": "$npm_execpath run database:start",
-    "predev": "$npm_execpath run database:migrate",
+    "predev": "$npm_execpath run database:start && $npm_execpath run database:migrate",
     "dev": "blitz dev",
     "build": "blitz build",
     "start": "blitz start",

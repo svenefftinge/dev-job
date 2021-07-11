@@ -3,15 +3,14 @@ image:
 
 # Commands to start on workspace startup
 tasks:
-  - init: |
+  - before: |
       printf "\n[settings]\napi_key = $WAKA_TIME_API_KEY\n" > ~/.wakatime.cfg
-      docker-compose up -d
-      yarn install
-  - prebuild: |
       npm install -g blitz --legacy-peer-deps
+  - init: |
+      yarn install
     command: |
+      docker-compose up -d
       yarn run dev
-      zsh
 
 # Ports to expose on workspace startup
 ports:
