@@ -9,7 +9,7 @@ tasks:
       npm install -g blitz --legacy-peer-deps
       yarn run database:migrate
       docker-compose down
-  - init: |
+      docker network prune
       yarn install
     command: |
       yarn run dev
