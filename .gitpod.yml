@@ -10,9 +10,9 @@ tasks:
       yarn run database:migrate
       docker-compose down
       docker network prune -y
-  - init: |
+    init: |
       yarn install
-    command: |
+  - command: |
       yarn run dev
 
 # Ports to expose on workspace startup
