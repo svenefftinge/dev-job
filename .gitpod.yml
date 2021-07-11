@@ -5,13 +5,13 @@ image:
 tasks:
   - before: |
       printf "\n[settings]\napi_key = $WAKA_TIME_API_KEY\n" > ~/.wakatime.cfg
+      docker-compose up -d
+      yarn run database:migrate
+      docker-compose down
   - init: |
       npm install -g blitz --legacy-peer-deps
       yarn install
-      docker-compose up -d
-      yarn run database:migrate
     command: |
-      docker-compose up -d
       yarn run dev
 
 # Ports to expose on workspace startup
