@@ -9,6 +9,7 @@ tasks:
       npm install -g blitz --legacy-peer-deps
       yarn install
     command: |
+      docker-compose up -d
       yarn run dev
 
 # Ports to expose on workspace startup
