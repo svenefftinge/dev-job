@@ -9,9 +9,9 @@ tasks:
       docker-compose up -d
       yarn install
       yarn run database:migrate
+  - command: |
       docker-compose down
       docker network prune -f
-  - command: |
       yarn run dev
 
 # Ports to expose on workspace startup
