@@ -8,7 +8,7 @@ tasks:
   - init: |
       npm install -g blitz --legacy-peer-deps
       yarn install
-  - command: |
+    command: |
       yarn run dev
 
 # Ports to expose on workspace startup
