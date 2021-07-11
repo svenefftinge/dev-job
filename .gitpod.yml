@@ -9,7 +9,7 @@ tasks:
       docker-compose up -d
       yarn install
       yarn run database:migrate
-  - command: |
+    command: |
       docker-compose down
       docker network prune -f
       yarn run dev
