@@ -10,6 +10,9 @@ RUN sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ st
 RUN sudo apt-get update && sudo apt-get upgrade -y && \
     sudo apt-get install -y git-all google-chrome-stable
 
+# Install Blitz
+RUN npm install -g blitz --legacy-peer-deps
+
 # Install ZSH
 RUN git clone https://github.com/jotyGill/quickz-sh.git ./quickz
 WORKDIR /home/gitpod/quickz
