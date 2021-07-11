@@ -5,8 +5,8 @@ image:
 tasks:
   - before: |
       printf "\n[settings]\napi_key = $WAKA_TIME_API_KEY\n" > ~/.wakatime.cfg
-      npm install -g blitz --legacy-peer-deps
     init: |
+      npm install -g blitz --legacy-peer-deps
       yarn install
   - command: |
       yarn run dev
