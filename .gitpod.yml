@@ -7,11 +7,11 @@ tasks:
       printf "\n[settings]\napi_key = $WAKA_TIME_API_KEY\n" > ~/.wakatime.cfg
       docker-compose up -d
       npm install -g blitz --legacy-peer-deps
-      yarn run database:migrate
-      docker-compose down
-      docker network prune -y
     init: |
       yarn install
+      yarn run database:migrate
+      docker-compose down
+      docker network prune -f
   - command: |
       yarn run dev
 
