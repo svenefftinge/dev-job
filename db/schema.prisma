@@ -13,16 +13,30 @@ generator client {
 // --------------------------------------
 
 model User {
-  id             Int      @id @default(autoincrement())
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  id             Int       @id @default(autoincrement())
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
   name           String?
-  email          String   @unique
+  email          String    @unique
   hashedPassword String?
-  role           String   @default("USER")
+  role           Role?     @default(CANDIDATE)
+  tokens         Token[]
+  sessions       Session[]
+}
 
-  tokens   Token[]
-  sessions Session[]
+model Candidate {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Company {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @unique
+  Name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Session {
@@ -41,9 +55,9 @@ model Session {
 }
 
 model Token {
-  id          Int      @id @default(autoincrement())
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id          Int       @id @default(autoincrement())
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
   hashedToken String
   type        TokenType
   expiresAt   DateTime
@@ -58,6 +72,8 @@ model Token {
 enum TokenType {
   RESET_PASSWORD
 }
-// enum TokenType {
-//   RESET_PASSWORD
-// }
+
+enum Role {
+  CANDIDATE
+  COMPANY
+}

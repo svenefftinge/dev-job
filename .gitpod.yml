@@ -18,6 +18,8 @@ tasks:
 ports:
   - port: 3000
     onOpen: open-preview
+  - port: 2151-2152
+    onOpen: ignore
 
 github:
   prebuilds:
