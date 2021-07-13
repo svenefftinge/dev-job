@@ -34,7 +34,7 @@ model Candidate {
 model Company {
   id        Int      @id @default(autoincrement())
   userId    Int      @unique
-  Name      String
+  name      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
