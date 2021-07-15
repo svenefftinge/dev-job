@@ -13,9 +13,10 @@ tasks:
     init: |
       gp sync-await install
       docker-compose up -d
+      sleep 5
       yarn run database:migrate
       docker-compose down
-      docker network prune -f      
+      docker network prune -f
   - name: Application
     command: |
       yarn run dev
