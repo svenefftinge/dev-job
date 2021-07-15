@@ -15,6 +15,10 @@ tasks:
       docker-compose up -d
       sleep 5
       yarn run database:migrate
+      gp sync-done migrate
+  - name: Cleanup
+    init: |
+      gp sync-await migrate
       docker-compose down
       docker network prune -f
   - name: Application
