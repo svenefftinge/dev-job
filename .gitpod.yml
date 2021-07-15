@@ -3,8 +3,6 @@ image:
 
 # Commands to start on workspace startup
 tasks:
-  - before: |
-      printf "\n[settings]\napi_key = $WAKA_TIME_API_KEY\n" > ~/.wakatime.cfg
   - name: Install
     init: |
       yarn install
@@ -22,6 +20,8 @@ tasks:
       docker-compose down
       docker network prune -f
   - name: Application
+    before: |
+      printf "\n[settings]\napi_key = $WAKA_TIME_API_KEY\n" > ~/.wakatime.cfg
     command: |
       yarn run dev
 
