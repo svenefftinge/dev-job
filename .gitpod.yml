@@ -18,7 +18,9 @@ tasks:
 ports:
   - port: 3000
     onOpen: open-preview
-  - port: 2151-2152
+  - port: 2151
+    onOpen: ignore
+  - port: 2152
     onOpen: ignore
 
 github:
