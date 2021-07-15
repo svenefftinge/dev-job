@@ -9,7 +9,7 @@ tasks:
   - name: Migrate Database
     init: |
       docker-compose up -d
-      sleep 1 && while ! netstat -tna | grep 'LISTEN' | grep -q '3309'; do sleep 1; done
+      sleep 1 && while ! netstat -tna | grep 'LISTEN' | grep -q '2151'; do sleep 1; done
       blitz prisma migrate dev
   - name: Application
     before: |
