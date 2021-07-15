@@ -3,11 +3,14 @@ image:
 
 # Commands to start on workspace startup
 tasks:
-  - name: Install and Migrate Database
+  - name: Install
     init: |
       yarn install
+  - name: Migrate Database
+    init: |
       docker-compose up -d
-      yarn run database:migrate
+      sleep 1 && while ! netstat -tna | grep 'LISTEN' | grep -q '3309'; do sleep 1; done
+      blitz prisma migrate dev
   - name: Application
     before: |
       printf "\n[settings]\napi_key = $WAKA_TIME_API_KEY\n" > ~/.wakatime.cfg
