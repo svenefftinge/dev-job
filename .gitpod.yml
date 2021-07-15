@@ -9,20 +9,14 @@ tasks:
       gp sync-done install
   - name: Migrate Database
     init: |
-      gp sync-await install
       docker-compose up -d
-      sleep 5
       yarn run database:migrate
-      gp sync-done migrate
-  - name: Cleanup
-    init: |
-      gp sync-await migrate
-      docker-compose down
-      docker network prune -f
   - name: Application
     before: |
       printf "\n[settings]\napi_key = $WAKA_TIME_API_KEY\n" > ~/.wakatime.cfg
     command: |
+      docker-compose down
+      docker network prune -f
       yarn run dev
 
 # Ports to expose on workspace startup
