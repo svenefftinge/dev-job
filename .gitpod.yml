@@ -7,18 +7,17 @@ tasks:
       printf "\n[settings]\napi_key = $WAKA_TIME_API_KEY\n" > ~/.wakatime.cfg
   - name: Install
     init: |
-      touch /tmp/.yarn-lock
       yarn install
-      rm /tmp/.yarn-lock
+      gp sync-done install
   - name: Migrate Database
     init: |
-      sleep 1 && while [ -f /tmp/.yarn-lock ]; do sleep 1; done
+      gp sync-await install
       docker-compose up -d
       yarn run database:migrate
+      docker-compose down
+      docker network prune -f      
   - name: Application
     command: |
-      docker-compose down
-      docker network prune -f
       yarn run dev
 
 # Ports to expose on workspace startup
