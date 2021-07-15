@@ -3,12 +3,10 @@ image:
 
 # Commands to start on workspace startup
 tasks:
-  - name: Install
+  - name: Install and Migrate Database
     init: |
       yarn install
       gp sync-done install
-  - name: Migrate Database
-    init: |
       gp sync-await install
       docker-compose up -d
       yarn run database:migrate
