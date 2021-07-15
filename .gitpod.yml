@@ -6,8 +6,6 @@ tasks:
   - name: Install and Migrate Database
     init: |
       yarn install
-      gp sync-done install
-      gp sync-await install
       docker-compose up -d
       yarn run database:migrate
   - name: Application
